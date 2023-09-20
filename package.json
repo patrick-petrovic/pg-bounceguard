@@ -1,0 +1,32 @@
+{
+  "name": "pg-bounceguard",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepublish": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pg": "^8.11.3",
+    "pgsql-parser": "^13.5.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "@types/pg": "^8.10.2",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-standard-with-typescript": "^39.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-n": "^16.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "prettier": "3.0.3",
+    "typescript": "^5.2.2"
+  }
+}
