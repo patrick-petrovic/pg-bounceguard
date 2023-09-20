@@ -6,7 +6,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "prepublish": "tsc",
+    "prepublish": "tsc --project tsconfig.build.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
