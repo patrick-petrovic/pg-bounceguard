@@ -1,14 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "lib": [
-      "es2021"
-    ],
+    "target": "es2022",
+    "lib": ["ES2022"],
     "module": "commonjs",
     "rootDir": "./lib",
-    "typeRoots": [
-      "./types"
-    ],
+    "typeRoots": ["./types"],
     "declaration": true,
     "sourceMap": true,
     "outDir": "./dist",
@@ -19,7 +15,5 @@
     "alwaysStrict": true,
     "skipLibCheck": true
   },
-  "include": [
-    "./lib/**/*"
-  ]
+  "include": ["./lib/**/*"]
 }

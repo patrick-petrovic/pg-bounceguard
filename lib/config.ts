@@ -1,4 +1,4 @@
-import { PGBounceGuardError } from "./error";
+import { PGBounceGuardError } from './error'
 
 export type Action = 'warn' | 'error'
 export type ActionOrIgnore = Action | 'ignore'

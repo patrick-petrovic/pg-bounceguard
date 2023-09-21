@@ -5,14 +5,17 @@
   "description": "Debug tool for pg (node-postgres) that blocks/logs queries that are incompatible with PgBouncer's transaction pooling mode.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
-    "prepublish": "tsc --project tsconfig.build.json",
+    "build": "tsc --project tsconfig.build.json",
+    "prepublish": "npm run build",
     "lint": "eslint",
     "format:check": "prettier . --check",
     "format": "prettier . --write",
-    "pretest": "docker compose up -d && sleep 5",
     "test": "tape -r ts-node/register test/*.ts",
-    "posttest": "docker compose down"
+    "test:docker": "docker compose up -d && sleep 5 && tape -r ts-node/register test/*.ts; docker compose down"
   },
   "keywords": [],
   "author": "",

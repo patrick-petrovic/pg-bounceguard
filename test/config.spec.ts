@@ -1,12 +1,12 @@
 import test from 'tape'
 import { PGBounceGuard } from '../lib/pgBounceGuard'
 import { Client } from 'pg'
-import type { PGBounceGuardError } from "../lib/error";
+import type { PGBounceGuardError } from '../lib/error'
 
 test('config options', async (t) => {
   const unwrapped = new Client({
-    host: 'localhost',
-    port: 5433,
+    host: process.env.POSTGRES_HOST ?? 'localhost',
+    port: 5432,
     database: 'postgres',
     user: 'postgres',
     password: 'postgres',
@@ -21,7 +21,7 @@ test('config options', async (t) => {
     },
     logFn: (err) => {
       lastError = err
-    }
+    },
   })
 
   await client.connect()
@@ -33,7 +33,7 @@ test('config options', async (t) => {
   })
 
   t.test('should warn on set', async (t) => {
-    await client.query('SET statement_timeout = \'30s\'')
+    await client.query("SET statement_timeout = '30s'")
     t.ok(lastError?.message.includes('SET statement'))
   })
 })
