@@ -1,10 +1,10 @@
 {
   "name": "pg-bounceguard",
-  "private": true,
   "version": "1.0.0",
   "description": "Debug tool for pg (node-postgres) that blocks/logs queries that are incompatible with PgBouncer's transaction pooling mode.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": "https://github.com/ppati000/pg-bounceguard.git",
   "engines": {
     "node": ">=18.0.0"
   },
