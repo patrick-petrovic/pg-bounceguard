@@ -1,4 +1,6 @@
 /* eslint-disable */
+// Source: https://gist.github.com/wesselvdv/c18d39550561bb5b76c7ebef1b82aac4.
+
 interface ParseResult {
   version: number
   stmts: Array<RawStmt>

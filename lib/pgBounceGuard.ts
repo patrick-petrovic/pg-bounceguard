@@ -61,6 +61,9 @@ export class PGBounceGuard {
       action: 'error',
       sampleRate: 1,
       overrides: {},
+      logFn: (err) => {
+        console.warn(err)
+      },
       ...config,
     }
   }
@@ -95,7 +98,7 @@ export class PGBounceGuard {
   private checkRawStatement(st: RawStmt['stmt'], q: QueryConfigOrString) {
     for (const [k, method] of Object.entries(PGBounceGuard.checkMap)) {
       const key = k as keyof typeof PGBounceGuard.checkMap
-      if (this.config.overrides[key] === 'none') {
+      if (this.config.overrides[key] === 'ignore') {
         continue
       }
       this[method](st, q)
@@ -210,12 +213,12 @@ export class PGBounceGuard {
 
   private handleError(type: keyof OverrideConfig, q: QueryConfigOrString, hint?: string) {
     const action = this.config.overrides[type] ?? this.config.action
-    if (action === 'none') {
+    if (action === 'ignore') {
       return
     }
 
     if (action === 'warn') {
-      console.warn(new PGBounceGuardError(q, type, hint))
+      this.config.logFn(new PGBounceGuardError(q, type, hint))
       return
     }
 

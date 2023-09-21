@@ -2,12 +2,17 @@
   "name": "pg-bounceguard",
   "private": true,
   "version": "1.0.0",
-  "description": "",
+  "description": "Debug tool for pg (node-postgres) that blocks/logs queries that are incompatible with PgBouncer's transaction pooling mode.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "prepublish": "tsc --project tsconfig.build.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint",
+    "format:check": "prettier . --check",
+    "format": "prettier . --write",
+    "pretest": "docker compose up -d && sleep 5",
+    "test": "tape -r ts-node/register test/*.ts",
+    "posttest": "docker compose down"
   },
   "keywords": [],
   "author": "",
@@ -17,8 +22,8 @@
     "pgsql-parser": "^13.5.0"
   },
   "devDependencies": {
-    "ts-node": "^10.9.1",
     "@types/pg": "^8.10.2",
+    "@types/tape": "^5.6.1",
     "@typescript-eslint/eslint-plugin": "^6.7.2",
     "eslint": "^8.49.0",
     "eslint-config-prettier": "^9.0.0",
@@ -27,6 +32,8 @@
     "eslint-plugin-n": "^16.1.0",
     "eslint-plugin-promise": "^6.1.1",
     "prettier": "3.0.3",
+    "tape": "^5.6.6",
+    "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   }
 }
