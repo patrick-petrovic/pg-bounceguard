@@ -36,7 +36,7 @@ npm install pg-bounceguard
 Here's an example of how to use `pg-bounceguard` in your Node.js application:
 
 ```javascript
-import { PGBounceGuard } from 'pg-bounce-guard';
+import { PGBounceGuard } from 'pg-bounceguard';
 import { Client } from 'pg';
 
 const unwrapped = new Client({
